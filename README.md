@@ -51,6 +51,7 @@ Steps guide help:
 
 13. Chọn Full image file
     ![image](https://github.com/user-attachments/assets/daceeff4-66e1-4944-8a16-d9e5a2eee106)
+
 Và tiến hành Generate Discovery ISO, download về local disk.
 
 15. Login vào Console của VMware vCenter
