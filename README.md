@@ -76,7 +76,7 @@ Và tiến hành Generate Discovery ISO, download về local disk.
     
 21. Cấu hình các thông số cho cluster từ ban đầu.
 
-    Tham khảo:[ ![image](https://github.com/user-attachments/assets/00e6bf7f-3ce0-4161-aba3-af29fdeafbae)](https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u)
+    Tham khảo: https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u
 
 
 
