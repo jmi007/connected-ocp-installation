@@ -40,8 +40,38 @@ Steps guide help:
    ![image](https://github.com/user-attachments/assets/0ee20cbd-7374-469d-9674-44d3c243d854)
 
 7. Bắt đầu tạo Cluster OVE/OCP
-   
-9. ádasdas
+   Chọn SNO để cài đặt trên môi trường lab
+   ![image](https://github.com/user-attachments/assets/7ee50c33-d486-4321-a367-9ba18fedef77)
+
+9. Skips 2 oprator này
+    ![image](https://github.com/user-attachments/assets/abe57f75-464e-42eb-8d10-1ab0e6b3c200)
+
+11. Add Host
+    ![image](https://github.com/user-attachments/assets/d39a15ac-863c-48fc-b717-b5caeafd629e)
+
+13. Chọn Full image file
+    ![image](https://github.com/user-attachments/assets/daceeff4-66e1-4944-8a16-d9e5a2eee106)
+Và tiến hành Generate Discovery ISO, download về local disk.
+
+15. Login vào Console của VMware vCenter,
+    a. Để upload ISO
+    ![image](https://github.com/user-attachments/assets/62d1cc30-313b-432c-a9ee-104099e05fd3)
+   b. Tạo 1 VM làm SNO (8vCPU/32G), và boot từ ISO lên.
+   ![image](https://github.com/user-attachments/assets/9d4e4faa-d9f6-4e46-9307-e5e0afdc7d39)
+   Đợi SNO boot lên và trở lại Red Hat Hybrid Console.
+![image](https://github.com/user-attachments/assets/59ac5026-c7ba-494e-8d81-ee365751f9a4)
+
+17. as
+
+
+
+
+
+
+
+
+
+
 
 
 
