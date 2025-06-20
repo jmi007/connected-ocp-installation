@@ -86,8 +86,31 @@ Và truy cập vào OCP Web Console
 ![image](https://github.com/user-attachments/assets/43d766d0-b80d-41af-ad42-e653dcb5ba65)
 
 21. Cấu hình các thông số cho cluster từ ban đầu.
+    a. Chuẩn bị bastion để thao tác bằng cli.
+      1. Download kubeconfig
 
-    Tham khảo: https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u
+         ![image](https://github.com/user-attachments/assets/a8bdac14-843d-450b-8136-a4ef59cade64)
+
+      3. Cài đặt công cụ quản trị trên bastion
+       Download oc client tool về bastion
+         ![image](https://github.com/user-attachments/assets/84741788-1f3e-41b2-8462-fee4ee8401c1)
+
+         #curl -k -O [https:///openshift/console/oc-client-linux.tar.gz] 
+         #tar -xvzf oc-client-linux.tar.gz
+         #sudo mv oc /usr/local/bin/
+        
+        Cấu hình thư mục .kube
+         
+         #mkdir -p ~/.kube
+         #mv kubeconfig ~/.kube/config
+         #chmod 600 ~/.kube/config
+        Kiểm tra hoạt động
+        #oc whoami
+        #oc get nodes
+
+         ![image](https://github.com/user-attachments/assets/a5a3d15d-5cab-4e82-9301-5af8a4d241ca)
+
+    b. Tham khảo: https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u
 
 
 
