@@ -53,15 +53,16 @@ Steps guide help:
     ![image](https://github.com/user-attachments/assets/daceeff4-66e1-4944-8a16-d9e5a2eee106)
 Và tiến hành Generate Discovery ISO, download về local disk.
 
-15. Login vào Console của VMware vCenter,
+15. Login vào Console của VMware vCenter
+   
     a. Để upload ISO
     ![image](https://github.com/user-attachments/assets/62d1cc30-313b-432c-a9ee-104099e05fd3)
-   b. Tạo 1 VM làm SNO (8vCPU/32G), và boot từ ISO lên.
+   b. Tạo 1 VM làm SNO (8vCPU/32G), và boot từ ISO lên. (One host is required with at least 8 CPU cores, 15.00 GiB RAM, and 100 GB disk size)
    ![image](https://github.com/user-attachments/assets/9d4e4faa-d9f6-4e46-9307-e5e0afdc7d39)
    Đợi SNO boot lên và trở lại Red Hat Hybrid Console.
 ![image](https://github.com/user-attachments/assets/59ac5026-c7ba-494e-8d81-ee365751f9a4)
 
-17. as
+17. 
 
 
 
