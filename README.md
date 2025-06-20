@@ -74,7 +74,9 @@ Và tiến hành Generate Discovery ISO, download về local disk.
     ![image](https://github.com/user-attachments/assets/9dd9bcc2-698c-4f84-8d6d-094af137b97a)
 
 19. Cài đặt thành công OVE/OCP Clusters.
-    
+
+    ![image](https://github.com/user-attachments/assets/60c9005a-70b3-4694-8288-07b4ea115f5c)
+
 21. Cấu hình các thông số cho cluster từ ban đầu.
 
     Tham khảo: https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u
