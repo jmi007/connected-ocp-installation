@@ -114,7 +114,7 @@ Và truy cập vào OCP Web Console
 
     b. Cuối cùng, thêm identityProvider vào cluster, ví dụ, chúng ta sẽ thêm các user và password như sau để có thể xác thực vào cluster:
     [user@bastion ~]# htpasswd -c -B -b ./ocp-user-passwd user1 p@ssw0rd1
-[user@bastion ~]# htpasswd -b ./ocp-user-passwd user2 p@ssw0rd2
+    [user@bastion ~]# htpasswd -b ./ocp-user-passwd user2 p@ssw0rd2
 [user@bastion ~]# oc create secret generic local-idp-secret \
                   --from-file htpasswd=./ocp-user-passwd -n openshift-config
 [user@bastion ~]# oc edit oauth cluster
@@ -126,13 +126,15 @@ spec:
     mappingMethod: claim
     name: local-users
     type: HTPasswd
+
 Phân quyền cho user, ví dụ user1 có quyền cluster-admin
 
 [user@bastion ~]# oc adm policy add-cluster-role-to-user cluster-admin user1
 Sau khi phân quyền xong, chúng ta có thể xóa user kubeadmin để giảm thiểu rủi ro bảo mật (lưu ý, chỉ thực hiện sau khi chúng ta đã có 1 user khác có quyền cluster-admin)
 
-[user@bastion ~]# oc delete secret kubeadmin -n kube-system 
-Như vậy là chúng ta đã cài đặt xong openshift cluster trong môi trường disconnected.
+[user@bastion ~]# oc delete secret kubeadmin -n kube-system
+    
+Như vậy là chúng ta đã cài đặt xong openshift cluster trong môi trường Connected.
 
 
 
