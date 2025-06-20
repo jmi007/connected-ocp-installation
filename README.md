@@ -68,9 +68,19 @@ Và tiến hành Generate Discovery ISO, download về local disk.
    Đợi SNO boot lên và trở lại Red Hat Hybrid Console.
 ![image](https://github.com/user-attachments/assets/59ac5026-c7ba-494e-8d81-ee365751f9a4)
 
+17. Nhấn Next các bước tiếp theo để tiến hành cài đặt và đợi đến step cuối, Install Cluster 
+
+    ![image](https://github.com/user-attachments/assets/9dd9bcc2-698c-4f84-8d6d-094af137b97a)
+
+19. Cài đặt thành công OVE/OCP Clusters.
+    
+21. Cấu hình các thông số cho cluster từ ban đầu.
+
+    Tham khảo:[ ![image](https://github.com/user-attachments/assets/00e6bf7f-3ce0-4161-aba3-af29fdeafbae)](https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u)
 
 
-17. 
+
+
 
 
 
