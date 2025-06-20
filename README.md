@@ -108,8 +108,8 @@ Và truy cập vào OCP Web Console
         #oc whoami
         #oc get nodes
 
-![image](https://github.com/user-attachments/assets/ddb70c14-df8a-4890-b9c3-b8b70e800226)
 
+![image](https://github.com/user-attachments/assets/bdd4becb-3735-443c-bbe2-035b51558a4a)
 
 
     b. Tham khảo: https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u
