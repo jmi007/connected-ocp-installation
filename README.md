@@ -58,10 +58,17 @@ Và tiến hành Generate Discovery ISO, download về local disk.
    
     a. Để upload ISO
     ![image](https://github.com/user-attachments/assets/62d1cc30-313b-432c-a9ee-104099e05fd3)
-   b. Tạo 1 VM làm SNO (8vCPU/32G), và boot từ ISO lên. (One host is required with at least 8 CPU cores, 15.00 GiB RAM, and 100 GB disk size)
+   b. Tạo 1 VM làm SNO (8vCPU/16G), và boot từ ISO lên. (One host is required with at least 8 CPU cores, 15.00 GiB RAM, and 100 GB disk size)
+   Lưu ý: cần phải add Vsphere disk uuid enabled cho VM.
+   "disk.EnableUUID TRUE"
+
+![image](https://github.com/user-attachments/assets/b367fd0e-5e10-4a28-b7f2-64887dadb43d)
+
    ![image](https://github.com/user-attachments/assets/9d4e4faa-d9f6-4e46-9307-e5e0afdc7d39)
    Đợi SNO boot lên và trở lại Red Hat Hybrid Console.
 ![image](https://github.com/user-attachments/assets/59ac5026-c7ba-494e-8d81-ee365751f9a4)
+
+
 
 17. 
 
