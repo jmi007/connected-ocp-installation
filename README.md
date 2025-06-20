@@ -112,7 +112,9 @@ Và truy cập vào OCP Web Console
 ![image](https://github.com/user-attachments/assets/bdd4becb-3735-443c-bbe2-035b51558a4a)
 
 
-    b. Cuối cùng, thêm identityProvider vào cluster, ví dụ, chúng ta sẽ thêm các user và password như sau để có thể xác thực vào cluster:
+    b. Cuối cùng, thêm identityProvider vào cluster:
+    
+ví dụ, chúng ta sẽ thêm các user và password như sau để có thể xác thực vào cluster:
     [user@bastion ~]# htpasswd -c -B -b ./ocp-user-passwd user1 p@ssw0rd1
     [user@bastion ~]# htpasswd -b ./ocp-user-passwd user2 p@ssw0rd2
 [user@bastion ~]# oc create secret generic local-idp-secret \
