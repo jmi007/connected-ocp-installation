@@ -77,6 +77,14 @@ Và tiến hành Generate Discovery ISO, download về local disk.
 
     ![image](https://github.com/user-attachments/assets/60c9005a-70b3-4694-8288-07b4ea115f5c)
 
+    Lưu ý: hiện tại chưa có DNS server, nên chúng ta cần sửa file /etc/hosts để phân giải local
+
+![image](https://github.com/user-attachments/assets/886ddbc9-b88d-4759-a55d-500750e7c791)
+
+Và truy cập vào OCP Web Console
+
+![image](https://github.com/user-attachments/assets/43d766d0-b80d-41af-ad42-e653dcb5ba65)
+
 21. Cấu hình các thông số cho cluster từ ban đầu.
 
     Tham khảo: https://github.com/vnlabs-ops/agent-based-ocp4-installation?tab=readme-ov-file#m%E1%BB%99t-s%E1%BB%91-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u
