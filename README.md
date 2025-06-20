@@ -114,11 +114,13 @@ Và truy cập vào OCP Web Console
 
     b. Cuối cùng, thêm identityProvider vào cluster:
     
-ví dụ, chúng ta sẽ thêm các user và password như sau để có thể xác thực vào cluster:
+Chúng ta sẽ thêm các user và password như sau để có thể xác thực vào cluster:
     [user@bastion ~]# htpasswd -c -B -b ./ocp-user-passwd user1 p@ssw0rd1
     [user@bastion ~]# htpasswd -b ./ocp-user-passwd user2 p@ssw0rd2
+
 [user@bastion ~]# oc create secret generic local-idp-secret \
                   --from-file htpasswd=./ocp-user-passwd -n openshift-config
+                  
 [user@bastion ~]# oc edit oauth cluster
 spec:
   identityProviders:
