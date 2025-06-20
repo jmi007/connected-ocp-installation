@@ -55,6 +55,8 @@ Steps guide help:
 
 Và tiến hành Generate Discovery ISO, download về local disk.
 
+Lưu ý: nếu bạn không điền thông tin SSH Public Key của bastion ở đây, sau khi cài thành công cluster bạn cần tham khảo link này để thao tác: https://access.redhat.com/solutions/3868301
+
 15. Login vào Console của VMware vCenter
    
     a. Để upload ISO
