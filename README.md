@@ -1,5 +1,6 @@
 # connected-ocp-installation
-connected guide 
+connected guide TBD, by Phat Chau & Tin Nguyen
+
 
 ***prepararion guide***
 
