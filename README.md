@@ -31,7 +31,7 @@ Lab guide: https://www.redhat.com/en/blog/how-to-use-the-openshift-assisted-inst
 
 Steps guide help:
 
-1. Thay đổi cấu hình của bastion để thao tác được nhanh hơn: 2vCPU/4GB RAM -> 4vCPU/8GB RAM
+1. Thay đổi cấu hình của bastion để thao tác được nhanh hơn: 2vCPU/4GB RAM -> 4vCPU/8GB RAM (shutdown VM)
    ![image](https://github.com/user-attachments/assets/1d60a0c1-3a9b-44ec-b7ee-48d9e01f6478)
 
 3. Login vào console của bastion, thao tác bằng GUI
