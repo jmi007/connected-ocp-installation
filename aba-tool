@@ -32,6 +32,21 @@ Tips:
 
 - Aba has also been tested with root user.
 
+Step 0: Cài đặt DNS Server local
+Run scipt đẻ cài đặt nhanh DNS Server 
+Link: dns-server-scripts
+
+# vi install_dns_server.sh
+#chmod +x install_dns_server.sh
+#sudo ./install_dns_server.sh
+
+
+#sudo vi /var/named/ocp.lab.zone
+bastion IN A 192.168.16.10
+api.cl1 IN A 192.168.16.100
+*.apps.cl1 IN A 192.168.16.100
+
+
 Step 1: Chuản bị các thông số cho OVE/OCP cluster
 #cd aba
 #./install
@@ -45,6 +60,22 @@ Install OpenShift from a mirror registry that is synchonized directly from the I
 -> Bài labs hôm nay chúng ta sẽ theo phương án cài đặt này: Install OpenShift directly from the Internet
 
 Step 2: Cài đặt OVE/OCP Cluster
+#aba cluster --name myclustername [--type <sno|compact|standard>] [--step <command>] [--starting-ip <ip>] [--api-vip <ip>] [--ingress-vip <ip>] [--int-connection <proxy|direct>]
+Tips:
+aba cluster --name cl1 --type sno --starting-ip 192.168.16.100 --api-vip 192.168.16.100 --ingress-vip 192.168.16.100 --int-connection direct
+
+Edit the cluster.conf file to set all the required parameters for OpenShift? (Y/n): Y
+# This is the main cluster configuration file.  Please go through all values carefully and adjust to match your needs!
+#bastion là IP=192.168.16.10
+cluster_name=cl1                        # Set the cluster name.
+base_domain=ocp.lab                     # Set the cluster base domain.
+
+dns_servers=192.168.16.10               # Comma-separated list of DNS server IPs, reachable from within the private network.
+next_hop_address=192.168.16.254                 # The private network's default route IP (optional).
+ntp_servers=192.168.16.10               # Optional: Comma-separated list of NTP servers. Configure NTP during bootstrap and
+
+#cd cl1; aba
+
+Step 3: Giám sát quá trình cài
 
 
-Step 3:
