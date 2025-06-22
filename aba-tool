@@ -35,6 +35,7 @@ Tips:
 Step 0: Cài đặt DNS Server local
 Run scipt đẻ cài đặt nhanh DNS Server 
 Link: dns-server-scripts
+https://github.com/jmi007/connected-ocp-installation/blob/main/dns-server-scripts
 
 # vi install_dns_server.sh
 #chmod +x install_dns_server.sh
