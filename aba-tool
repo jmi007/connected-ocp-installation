@@ -13,7 +13,14 @@ Kiểm tra các gói cài đặt trên Bastion:
 - Download and store the Red Hat registry pull secret to ~/.pull-secret.json (a pull secret can be downloaded from https://console.redhat.com/openshift/install/pull-secret).
 - Install required RPMs listed in templates/rpms-external.txt (or, if dnf is configured, let Aba use dnf to install the packages).
 - Run sudo dnf update to ensure all packages are up to date (optional).
-- Password-less sudo root access is recommended.
+- Password-less sudo root access is recommended. (#sudo visudo)
+Tips: 
+## Allows people in group wheel to run all commands
+#%wheel ALL=(ALL)       ALL
+
+## Same thing without a password
+%wheel  ALL=(ALL)       NOPASSWD: ALL
+
 - Aba has also been tested with root user.
 
 Step 1:
