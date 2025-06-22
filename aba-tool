@@ -78,7 +78,17 @@ ntp_servers=192.168.16.10               # Optional: Comma-separated list of NTP 
 
 Step 3: Tạo SNO VM, để chuân chị boot từ ISO file.
 Tham khảo cách tạo vm ở đây: (lưu ý: cần phải add Vsphere disk uuid enabled cho VM. "disk.EnableUUID TRUE")
+Và lưu lại VM NIC MAC Address, ví du: NIC 00:50:56:8e:df:af
+
 https://github.com/jmi007/connected-ocp-installation/blob/main/README.md
+
+Cập nhật lại MAC trên file: "agent-config.yaml" theo MAC Address ở trên, cập nhật IP (optional)
+
+Sau đó tạo tiến hành tạo ISO.
+
+#aba iso 
+
+Sau khi đã có file ISO, tiến hành boot SNO VM từ ISO file.
 
 Step 4: Giám sát tiến trình cài đặt.
 
