@@ -32,13 +32,13 @@ options {
 zone "$DOMAIN_NAME" IN {
     type master;
     file "${DOMAIN_NAME}.zone";
-    allow-update { none; };
+    allow-update { any; };
 };
 
 zone "$REVERSE_ZONE" IN {
     type master;
     file "${REVERSE_ZONE}.zone";
-    allow-update { none; };
+    allow-update { any; };
 };
 EOF
 
