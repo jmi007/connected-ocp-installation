@@ -1,5 +1,10 @@
 aba-tool với môi trường connected 
 
+Kiểm tra các thông tin về môi trường:
+
+1. Bastion (4vCPU/8GB RAM, DISK 200GB)
+2. vmware resources hoặc bare-metal resource (cpu, ram, nic: mac-address) 
+Lưu ý: SNO openshift cluster min 8vCPU, 16 GB RAM. 
 
 Step 1:
 
