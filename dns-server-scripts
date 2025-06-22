@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Thông số cấu hình DNS
+DOMAIN_NAME="corp.example.com" #change domain as your labs, example: ocp.lab
+ZONE_FILE="/var/named/${DOMAIN_NAME}.zone"
+REVERSE_ZONE="16.168.192.in-addr.arpa"   #change your subnet as your labs, example: 192.168.16.0/24 
+REVERSE_ZONE_FILE="/var/named/${REVERSE_ZONE}.zone"
+FORWARDERS="8.8.8.8; 1.1.1.1;"
+
+# Cài đặt BIND
+echo "[*] Installing BIND DNS server..."
+dnf install -y bind bind-utils
+
+# Bật và khởi động dịch vụ
+echo "[*] Enabling and starting named service..."
+systemctl enable named
+systemctl start named
+
+# Cấu hình tệp /etc/named.conf
+echo "[*] Configuring named.conf..."
+cat > /etc/named.conf <<EOF
+options {
+    listen-on port 53 { any; };
+    directory     "/var/named";
+    dump-file     "/var/named/data/cache_dump.db";
+    statistics-file "/var/named/data/named_stats.txt";
+    memstatistics-file "/var/named/data/named_mem_stats.txt";
+    allow-query     { any; };
+    recursion yes;
+    forwarders { $FORWARDERS };
+    dnssec-validation no;
+};
+
+zone "$DOMAIN_NAME" IN {
+    type master;
+    file "${DOMAIN_NAME}.zone";
+    allow-update { none; };
+};
+
+zone "$REVERSE_ZONE" IN {
+    type master;
+    file "${REVERSE_ZONE}.zone";
+    allow-update { none; };
+};
+EOF
+
+# Tạo zone file cho domain chính
+echo "[*] Creating forward zone file..."
+cat > "$ZONE_FILE" <<EOF
+\$TTL 86400
+@   IN  SOA     ns1.${DOMAIN_NAME}. admin.${DOMAIN_NAME}. (
+                        2025062201 ; Serial
+                        3600       ; Refresh
+                        1800       ; Retry
+                        604800     ; Expire
+                        86400 )    ; Minimum TTL
+
+    IN  NS      ns1.${DOMAIN_NAME}.
+ns1 IN  A       192.168.16.10 # change your subnet 
+www IN  A       192.168.16.20 # change your subnet 
+EOF
+
+# Tạo reverse zone
+echo "[*] Creating reverse zone file..."
+cat > "$REVERSE_ZONE_FILE" <<EOF
+\$TTL 86400
+@   IN  SOA     ns1.${DOMAIN_NAME}. admin.${DOMAIN_NAME}. (
+                        2025062201 ; Serial
+                        3600       ; Refresh
+                        1800       ; Retry
+                        604800     ; Expire
+                        86400 )    ; Minimum TTL
+
+    IN  NS      ns1.${DOMAIN_NAME}.
+10  IN  PTR     ns1.${DOMAIN_NAME}.
+20  IN  PTR     www.${DOMAIN_NAME}.
+EOF
+
+# Đảm bảo quyền sở hữu tệp
+chown named:named $ZONE_FILE $REVERSE_ZONE_FILE
+
+# Cấu hình firewalld nếu có
+echo "[*] Configuring firewall to allow DNS..."
+firewall-cmd --permanent --add-service=dns
+firewall-cmd --reload
+
+# Khởi động lại BIND để áp dụng thay đổi
+echo "[*] Restarting named..."
+systemctl restart named
+
+echo "[✔] DNS Server installation and configuration complete."
