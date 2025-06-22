@@ -71,8 +71,12 @@ Edit the cluster.conf file to set all the required parameters for OpenShift? (Y/
 cluster_name=cl1                        # Set the cluster name.
 base_domain=ocp.lab                     # Set the cluster base domain.
 
+machine_network=192.168.16.0/24         # Set the network CIDR for the cluster nodes. 
+
+starting_ip=192.168.16.100                              # All nodes will be configured with static IPs starting from this IP address. 
+
 dns_servers=192.168.16.10               # Comma-separated list of DNS server IPs, reachable from within the private network.
-next_hop_address=192.168.16.254                 # The private network's default route IP (optional).
+next_hop_address=192.168.16.1                 # The private network's default route IP (optional).
 ntp_servers=192.168.16.10               # Optional: Comma-separated list of NTP servers. Configure NTP during bootstrap and
 
 #cd cl1; aba
