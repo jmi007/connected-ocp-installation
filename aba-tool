@@ -76,6 +76,11 @@ ntp_servers=192.168.16.10               # Optional: Comma-separated list of NTP 
 
 #cd cl1; aba
 
-Step 3: Giám sát quá trình cài
+Step 3: Tạo SNO VM, để chuân chị boot từ ISO file.
+Tham khảo cách tạo vm ở đây: (lưu ý: cần phải add Vsphere disk uuid enabled cho VM. "disk.EnableUUID TRUE")
+https://github.com/jmi007/connected-ocp-installation/blob/main/README.md
+
+Step 4: Giám sát tiến trình cài đặt.
+
 
 
