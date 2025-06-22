@@ -1,4 +1,4 @@
-[lab-user@bastion-495v8 devsecops-lab]$ ./vcenter_deploy.sh \
+[lab-user@bastion-495v8 devsecops-lab]$ ./creat_vm_vcenter.sh \
   --vcenter-server vcsnsx-vc.infra.demo.redhat.com                                                                \
   --vcenter-user sandbox-495v8@demo                            \
   --vcenter-pass eU_KBN9jRF59           \
