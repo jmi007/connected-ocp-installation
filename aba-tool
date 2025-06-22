@@ -95,4 +95,12 @@ Step 4: Giám sát tiến trình cài đặt.
 
 #aba mon 
 
+The cluster has been successfully installed!
+Run '. <(aba shell)' to access the cluster using the kubeconfig file (client cert), or
+Run '. <(aba login)' to log into the cluster using kubeadmin's password.
+Run 'aba day2-ntp' to configure NTP on this cluster.
+Run 'aba info' to view this information again.
+Run 'aba help' and 'aba -h' for more options.
+
+
 
