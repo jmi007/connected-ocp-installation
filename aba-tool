@@ -32,11 +32,19 @@ Tips:
 
 - Aba has also been tested with root user.
 
-Step 1:
+Step 1: Chuản bị các thông số cho OVE/OCP cluster
 #cd aba
 #./install
 #aba          # Let Aba guide you through the installation process
 
-Step 2:
+Which OpenShift update channel do you want to use? (f)ast, (s)table, or (c)andidate) [s]: s
+Enter version or 4.19.0 (l)atest (<version>/l/p/Enter) [4.19.0]: 
+
+Install OpenShift into a fully disconnected network environment? (Y/n): n
+Install OpenShift from a mirror registry that is synchonized directly from the Internet? (Y/n): n
+-> Bài labs hôm nay chúng ta sẽ theo phương án cài đặt này: Install OpenShift directly from the Internet
+
+Step 2: Cài đặt OVE/OCP Cluster
+
 
 Step 3:
