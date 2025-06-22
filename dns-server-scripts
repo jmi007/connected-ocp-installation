@@ -5,7 +5,7 @@ DOMAIN_NAME="corp.example.com" #change domain as your labs, example: ocp.lab
 ZONE_FILE="/var/named/${DOMAIN_NAME}.zone"
 REVERSE_ZONE="16.168.192.in-addr.arpa"   #change your subnet as your labs, example: 192.168.16.0/24 
 REVERSE_ZONE_FILE="/var/named/${REVERSE_ZONE}.zone"
-FORWARDERS="8.8.8.8; 1.1.1.1;"
+FORWARDERS="8.8.8.8;"
 
 # Cài đặt BIND
 echo "[*] Installing BIND DNS server..."
@@ -22,13 +22,11 @@ cat > /etc/named.conf <<EOF
 options {
     listen-on port 53 { any; };
     directory     "/var/named";
-    dump-file     "/var/named/data/cache_dump.db";
-    statistics-file "/var/named/data/named_stats.txt";
-    memstatistics-file "/var/named/data/named_mem_stats.txt";
     allow-query     { any; };
     recursion yes;
     forwarders { $FORWARDERS };
     dnssec-validation no;
+    allow-recursion { any; };
 };
 
 zone "$DOMAIN_NAME" IN {
