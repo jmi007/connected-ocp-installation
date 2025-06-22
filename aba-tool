@@ -1,0 +1,81 @@
+aba-tool với môi trường connected 
+Lab guide offical: https://github.com/sjbylo/aba
+
+Kiểm tra các thông tin về môi trường:
+
+1. Bastion (4vCPU/8GB RAM, DISK 200GB)
+2. vmware resources hoặc bare-metal resource (cpu, ram, nic: mac-address) 
+Lưu ý: SNO openshift cluster min 8vCPU, 16 GB RAM. 
+
+Kiểm tra các gói cài đặt trên Bastion:
+
+- Clone or download this Git repository (https://github.com/sjbylo/aba.git) to any location in your home directory.
+Tips:
+#git clone https://github.com/sjbylo/aba.git
+
+- Download and store the Red Hat registry pull secret to ~/.pull-secret.json (a pull secret can be downloaded from https://console.redhat.com/openshift/install/pull-secret).
+Tips:
+#vi ~/.pull-secret.json 
+#copy and past (copy pull secret)
+Pull secret: https://console.redhat.com/openshift/install/pull-secret
+Download or copy your pull secret. You'll be prompted for this information during installation.
+
+- Install required RPMs listed in templates/rpms-external.txt (or, if dnf is configured, let Aba use dnf to install the packages).
+- Run sudo dnf update to ensure all packages are up to date (optional).
+- Password-less sudo root access is recommended. (#sudo visudo)
+Tips: 
+## Allows people in group wheel to run all commands
+#%wheel ALL=(ALL)       ALL
+
+## Same thing without a password
+%wheel  ALL=(ALL)       NOPASSWD: ALL
+
+- Aba has also been tested with root user.
+
+Step 0: Cài đặt DNS Server local
+Run scipt đẻ cài đặt nhanh DNS Server 
+Link: dns-server-scripts
+
+# vi install_dns_server.sh
+#chmod +x install_dns_server.sh
+#sudo ./install_dns_server.sh
+
+
+#sudo vi /var/named/ocp.lab.zone
+bastion IN A 192.168.16.10
+api.cl1 IN A 192.168.16.100
+*.apps.cl1 IN A 192.168.16.100
+
+
+Step 1: Chuản bị các thông số cho OVE/OCP cluster
+#cd aba
+#./install
+#aba          # Let Aba guide you through the installation process
+
+Which OpenShift update channel do you want to use? (f)ast, (s)table, or (c)andidate) [s]: s
+Enter version or 4.19.0 (l)atest (<version>/l/p/Enter) [4.19.0]: 
+
+Install OpenShift into a fully disconnected network environment? (Y/n): n
+Install OpenShift from a mirror registry that is synchonized directly from the Internet? (Y/n): n
+-> Bài labs hôm nay chúng ta sẽ theo phương án cài đặt này: Install OpenShift directly from the Internet
+
+Step 2: Cài đặt OVE/OCP Cluster
+#aba cluster --name myclustername [--type <sno|compact|standard>] [--step <command>] [--starting-ip <ip>] [--api-vip <ip>] [--ingress-vip <ip>] [--int-connection <proxy|direct>]
+Tips:
+aba cluster --name cl1 --type sno --starting-ip 192.168.16.100 --api-vip 192.168.16.100 --ingress-vip 192.168.16.100 --int-connection direct
+
+Edit the cluster.conf file to set all the required parameters for OpenShift? (Y/n): Y
+# This is the main cluster configuration file.  Please go through all values carefully and adjust to match your needs!
+#bastion là IP=192.168.16.10
+cluster_name=cl1                        # Set the cluster name.
+base_domain=ocp.lab                     # Set the cluster base domain.
+
+dns_servers=192.168.16.10               # Comma-separated list of DNS server IPs, reachable from within the private network.
+next_hop_address=192.168.16.254                 # The private network's default route IP (optional).
+ntp_servers=192.168.16.10               # Optional: Comma-separated list of NTP servers. Configure NTP during bootstrap and
+
+#cd cl1; aba
+
+Step 3: Giám sát quá trình cài
+
+
