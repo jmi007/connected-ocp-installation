@@ -52,7 +52,7 @@ Steps guide help:
 
    ![image](https://github.com/user-attachments/assets/7ee50c33-d486-4321-a367-9ba18fedef77)
 
-5. Skips 2 oprator này
+5. Skips 2 operator này
 
     ![image](https://github.com/user-attachments/assets/abe57f75-464e-42eb-8d10-1ab0e6b3c200)
 
@@ -65,8 +65,10 @@ Steps guide help:
     ![image](https://github.com/user-attachments/assets/daceeff4-66e1-4944-8a16-d9e5a2eee106)
 
 Và tiến hành Generate Discovery ISO, download về local disk.
+Nếu bạn muốn tạo SSH Public Key được dùng để quản trị các OCP Nodes từ bastion thì dùng lệnh:
+## ssh-keygen -t rsa -N '' -f node_ssh_key
 
-Lưu ý: nếu bạn không điền thông tin SSH Public Key của bastion ở đây, sau khi cài thành công cluster bạn cần tham khảo link này để thao tác: https://access.redhat.com/solutions/3868301
+Lưu ý: nếu bạn không điền thông tin SSH Public Key của bastion ở đây, sau khi cài thành công cluster bạn cần tham khảo link này để thao tác tạo lại SSH Public Key với Cluster đã có: https://access.redhat.com/solutions/3868301
 
 8. Login vào Console của VMware vCenter
    
