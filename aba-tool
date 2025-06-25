@@ -37,6 +37,7 @@ Prefer Solution:
 https://github.com/vnlabs-ops/devsecops-lab/blob/main/configure-services.md
 
 #git clone https://github.com/vnlabs-ops/devsecops-lab.git
+#cd devsecops-lab/
 #sudo ./configure-services.sh --services all
 
 Backup solution:
