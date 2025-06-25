@@ -1,20 +1,23 @@
-# connected-ocp-installation
-connected guide TBD, by Phat Chau & Tin Nguyen
 
+# Connected-ocp-installation
 
-***prepararion guide***
+Connected guide TBD, by Phat Chau & Tin Nguyen
 
-1. Cài đặt GUI (Graphical Desktop Environment)
+## Preparation Guide
+
+1. SSH vào môi trường Lab như thông tin đã cung cấp.
+
+2. Cài đặt GUI (Graphical Desktop Environment)
 Nếu bạn cài RHEL 9 bản minimal hoặc server, bạn chưa có GUI, nên phải cài thêm:
 ```
 $ sudo dnf -y groupinstall "Server with GUI"
 ```
-2. Bật GUI làm mặc định khi khởi động
+3. Bật GUI làm mặc định khi khởi động
 
 Chuyển systemd default target sang graphical.target:
 ```
 $ sudo systemctl set-default graphical.target
-$ reboot
+$ sudo reboot
 ```
 <!--
 3. Cài đặt VMware Remote Console trên Fedora # Cài lỗi#
@@ -27,14 +30,16 @@ Mở terminal và chạy:
 #chmod +x VMware-Remote-Console-xxxx.x.x.xxxxxxx.bundle
 #sudo ./VMware-Remote-Console-xxxx.x.x.xxxxxxx.bundle
 -->
+4. Copy thông tin login vCenter vào Bastion Host.
+5. Cần phải có user login portal https://console.redhat.com
 
-# Start lab
+## Start lab
 
 Lab guide: https://www.redhat.com/en/blog/how-to-use-the-openshift-assisted-installer
 
 Steps guide help:
 
-1. Thay đổi cấu hình của bastion để thao tác được nhanh hơn: 2vCPU/4GB RAM -> 4vCPU/6GB RAM (shutdown VM)
+1. Login vào vCenter, shutdown bastion host sau đó tiến hành thay đổi cấu hình của bastion để thao tác được nhanh hơn: 2vCPU/4GB RAM -> 8vCPU/16GB RAM.
 
    ![image](https://github.com/user-attachments/assets/1d60a0c1-3a9b-44ec-b7ee-48d9e01f6478)
 
@@ -76,8 +81,11 @@ a. Để upload ISO
 
 ![image](https://github.com/user-attachments/assets/62d1cc30-313b-432c-a9ee-104099e05fd3)
 
-b. Tạo 1 VM làm SNO (8vCPU/16G), và boot từ ISO lên. (One host is required with at least 8 CPU cores, 15.00 GiB RAM, and 100 GB disk size)
-   Lưu ý: cần phải add Vsphere disk uuid enabled cho VM.
+b. Tạo 1 VM làm SNO (16vCPU/32G), và boot từ ISO lên. (One host is required with at least 8 CPU cores, 15.00 GiB RAM, and 100 GB disk size)
+   
+![Screenshot 2025-06-25 at 15 13 12](https://github.com/user-attachments/assets/d5c030d9-fb01-42b6-931b-9d7943775a3b)
+
+Lưu ý: cần phải add Vsphere disk uuid enabled cho VM.
    ```
    "disk.EnableUUID TRUE"
    ```
@@ -85,6 +93,8 @@ b. Tạo 1 VM làm SNO (8vCPU/16G), và boot từ ISO lên. (One host is require
 ![image](https://github.com/user-attachments/assets/b367fd0e-5e10-4a28-b7f2-64887dadb43d)
 
 ![image](https://github.com/user-attachments/assets/9d4e4faa-d9f6-4e46-9307-e5e0afdc7d39)
+
+
 
    Đợi SNO boot lên và trở lại Red Hat Hybrid Console.
 
@@ -113,12 +123,18 @@ Và truy cập vào OCP Web Console
          ![image](https://github.com/user-attachments/assets/a8bdac14-843d-450b-8136-a4ef59cade64)
 
       3. Cài đặt công cụ quản trị trên bastion
-       Download oc client tool về bastion
+         
+       Edit file /etc/hosts cho đường dẫn downloads như bên dưới, chú ý thay đổi name cluster và base domain cho phù hợp
 
-         ![image](https://github.com/user-attachments/assets/84741788-1f3e-41b2-8462-fee4ee8401c1)
+![Screenshot 2025-06-25 at 16 20 19](https://github.com/user-attachments/assets/e049eaa3-086f-4ff8-aeaa-0635eda3c4c2)
+
+   Vào question mark trên trang chủ OpenShift Cluster nhấn chọn download OC command phù hợp với máy local
+
+   ![Screenshot 2025-06-25 at 16 24 05](https://github.com/user-attachments/assets/8a4e76ef-6268-46e0-acbb-810060db859a)
+
 ```
-    $ curl -k -O [https:///openshift/console/oc-client-linux.tar.gz] 
-    $ tar -xvzf oc-client-linux.tar.gz
+
+    $ tar -xvf oc.gz
     $ sudo mv oc /usr/local/bin/
 ```
         Cấu hình thư mục .kube
@@ -155,6 +171,7 @@ Phân quyền cho user, ví dụ user1 có quyền cluster-admin
 ```
 [user@bastion ~]# oc adm policy add-cluster-role-to-user cluster-admin user1
 ```
+Thử login vào cluster bằng user1.
 Sau khi phân quyền xong, chúng ta có thể xóa user kubeadmin để giảm thiểu rủi ro bảo mật (lưu ý, chỉ thực hiện sau khi chúng ta đã có 1 user khác có quyền cluster-admin)
 ```
 [user@bastion ~]# oc delete secret kubeadmin -n kube-system
