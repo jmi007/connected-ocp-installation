@@ -57,6 +57,7 @@ bastion IN A 192.168.16.10
 api.cl1 IN A 192.168.16.100
 *.apps.cl1 IN A 192.168.16.100
 
+Lưu ý: thiết lập static IP cho bastion và DNS trong trường hợp nếu vẫn chưa phân giải được name & ip theo dns server
 
 Step 1: Chuản bị các thông số cho OVE/OCP cluster
 #cd aba
