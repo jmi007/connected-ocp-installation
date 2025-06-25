@@ -38,7 +38,9 @@ https://github.com/vnlabs-ops/devsecops-lab/blob/main/configure-services.md
 
 #git clone https://github.com/vnlabs-ops/devsecops-lab.git
 #cd devsecops-lab/
-#sudo ./configure-services.sh --services all
+#sudo ./configure-services.sh --services all 
+Ví dụ nếu chúng ta muốn thay đổi domain name:
+#sudo ./configure-services.sh --services all --domain mylab.local --timezone Asia/Bangkok
 
 Backup solution:
 Run scipt cài đặt nhanh DNS Server 
