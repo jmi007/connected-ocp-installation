@@ -32,8 +32,15 @@ Tips:
 
 - Aba has also been tested with root user.
 
-Step 0: Cài đặt DNS Server local
-Run scipt đẻ cài đặt nhanh DNS Server 
+Step 0: Cài đặt DNS/NTP Server local
+Prefer Solution: 
+https://github.com/vnlabs-ops/devsecops-lab/blob/main/configure-services.md
+
+#git clone https://github.com/vnlabs-ops/devsecops-lab.git
+#sudo ./configure-services.sh --services all
+
+Backup solution:
+Run scipt cài đặt nhanh DNS Server 
 Link: dns-server-scripts
 https://github.com/jmi007/connected-ocp-installation/blob/main/dns-server-scripts
 
