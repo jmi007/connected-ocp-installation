@@ -66,7 +66,7 @@ Steps guide help:
 
 Và tiến hành Generate Discovery ISO, download về local disk.
 Nếu bạn muốn tạo SSH Public Key được dùng để quản trị các OCP Nodes từ bastion thì dùng lệnh:
-## ssh-keygen -t rsa -N '' -f node_ssh_key
+#ssh-keygen -t rsa -N '' -f node_ssh_key
 
 Lưu ý: nếu bạn không điền thông tin SSH Public Key của bastion ở đây, sau khi cài thành công cluster bạn cần tham khảo link này để thao tác tạo lại SSH Public Key với Cluster đã có: https://access.redhat.com/solutions/3868301
 
