@@ -40,7 +40,7 @@ https://github.com/vnlabs-ops/devsecops-lab/blob/main/configure-services.md
 #cd devsecops-lab/
 #sudo ./configure-services.sh --services all 
 Ví dụ nếu chúng ta muốn thay đổi domain name:
-#sudo ./configure-services.sh --services all --domain mylab.local --timezone Asia/Bangkok
+#sudo ./configure-services.sh --services all --domain ocp.lab --timezone Asia/Bangkok
 
 Backup solution:
 Run scipt cài đặt nhanh DNS Server 
